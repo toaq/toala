@@ -12,6 +12,8 @@ export function About() {
       <p>
         You get {maxGuesses} tries to guess a target word.
         <br />
+        There is never an apostrophe (') in the target word.
+        <br />
         After each guess, you get Mastermind-style feedback.
       </p>
       <hr />

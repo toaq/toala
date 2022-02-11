@@ -42,6 +42,7 @@ function App() {
     "qwertyuiop-asdfghjkl-BzxcvbnmE"
   );
   const [enterLeft, setEnterLeft] = useSetting<boolean>("enter-left", false);
+  const [toaq, setToaq] = useSetting<boolean>("toaq", true);
 
   useEffect(() => {
     document.body.className = dark ? "dark" : "";
@@ -66,17 +67,18 @@ function App() {
   );
 
   return (
-    <div className={"App-container" + (colorBlind ? " color-blind" : "")}>
-      <h1>
-        mí Toaly
-      </h1>
+    <div
+      lang={toaq ? "art-toaq" : "en"}
+      className={"App-container" + (colorBlind ? " color-blind" : "")}
+    >
+      <h1>mí Toaly</h1>
       <div className="top-right">
         {page !== "game" ? (
-          link("❌", "Close", "game")
+          link("❌", toaq ? "Tua poa" : "Close", "game")
         ) : (
           <>
-            {link("❓", "About", "about")}
-            {link("⚙️", "Settings", "settings")}
+            {link("❓", toaq ? "Sóakue" : "About", "about")}
+            {link("⚙️", toaq ? "Settings" : "Cíoqtoq", "settings")}
           </>
         )}
       </div>
@@ -89,7 +91,7 @@ function App() {
         }}
       >
         <a href={seed ? "?random" : "?seed=" + todaySeed}>
-          {seed ? "Random" : "Today's"}
+          {toaq ? (seed ? "Neq" : "Po níchaq") : seed ? "Random" : "Today's"}
         </a>
       </div>
       {page === "about" && <About />}
@@ -97,12 +99,26 @@ function App() {
         <div className="Settings">
           <div className="Settings-setting">
             <input
+              id="toaq-setting"
+              type="checkbox"
+              checked={toaq}
+              onChange={() => setToaq((x: boolean) => !x)}
+            />
+            <label htmlFor="toaq-setting">
+              No chóqteı Tóaqzu / Toaq-language interface
+            </label>
+          </div>
+          <hr />
+          <div className="Settings-setting">
+            <input
               id="dark-setting"
               type="checkbox"
               checked={dark}
               onChange={() => setDark((x: boolean) => !x)}
             />
-            <label htmlFor="dark-setting">Dark theme</label>
+            <label htmlFor="dark-setting">
+              {toaq ? "Moy chóqteı" : "Dark theme"}
+            </label>
           </div>
           <div className="Settings-setting">
             <input
@@ -111,7 +127,9 @@ function App() {
               checked={colorBlind}
               onChange={() => setColorBlind((x: boolean) => !x)}
             />
-            <label htmlFor="colorblind-setting">High-contrast colors</label>
+            <label htmlFor="colorblind-setting">
+              {toaq ? "Fuı heodua réo" : "High-contrast colors"}
+            </label>
           </div>
           <div className="Settings-setting">
             <input
@@ -123,7 +141,9 @@ function App() {
               onChange={(e) => setDifficulty(+e.target.value)}
             />
             <div>
-              <label htmlFor="difficulty-setting">Difficulty:</label>
+              <label htmlFor="difficulty-setting">
+                {toaq ? "Noane:" : "Difficulty:"}
+              </label>
               <strong>{["Normal", "Hard", "Ultra Hard"][difficulty]}</strong>
               <div
                 style={{
@@ -144,7 +164,9 @@ function App() {
             </div>
           </div>
           <div className="Settings-setting">
-            <label htmlFor="keyboard-setting">Keyboard layout:</label>
+            <label htmlFor="keyboard-setting">
+              {toaq ? "Daokaıchuotıteı:" : "Keyboard layout:"}
+            </label>
             <select
               name="keyboard-setting"
               id="keyboard-setting"
@@ -164,7 +186,9 @@ function App() {
               checked={enterLeft}
               onChange={() => setEnterLeft((x: boolean) => !x)}
             />
-            <label htmlFor="enter-left-setting">"Enter" on left side</label>
+            <label htmlFor="enter-left-setting">
+              {toaq ? "Lıo cíoq mï Koe" : '"Enter" on left side'}
+            </label>
           </div>
         </div>
       )}
@@ -177,6 +201,7 @@ function App() {
           /[BE]/g,
           (x) => (enterLeft ? "EB" : "BE")["BE".indexOf(x)]
         )}
+        toaq={toaq}
       />
     </div>
   );

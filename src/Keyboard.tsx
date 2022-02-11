@@ -4,6 +4,7 @@ interface KeyboardProps {
   layout: string;
   letterInfo: Map<string, Clue>;
   onKey: (key: string) => void;
+  toaq: boolean;
 }
 
 export function Keyboard(props: KeyboardProps) {
@@ -38,7 +39,10 @@ export function Keyboard(props: KeyboardProps) {
                   props.onKey(label);
                 }}
               >
-                {label.replace("Backspace", "⌫")}
+                {(props.toaq ? label.replace("Enter", "Koe") : label).replace(
+                  "Backspace",
+                  "⌫"
+                )}
               </button>
             );
           })}

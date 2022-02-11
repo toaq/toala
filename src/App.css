@@ -106,11 +106,18 @@ table.Game-rows > tbody {
   flex: 1;
   align-items: center;
   justify-content: center;
+  font-family: inherit;
   font-size: 20px;
   color: inherit;
   text-decoration: inherit;
   border: 2px solid transparent;
   cursor: pointer;
+}
+
+.Game-keyboard-button:disabled,
+body.dark .Game-keyboard-button:disabled {
+  cursor: inherit;
+  color: transparent;
 }
 
 .Game-keyboard-button-wide {

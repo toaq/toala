@@ -30,9 +30,9 @@ interface GameProps {
   keyboardLayout: string;
 }
 
-const targets = targetList.slice(0, targetList.indexOf("murky") + 1); // Words no rarer than this one
-const minLength = 4;
-const maxLength = 11;
+const targets = targetList;
+const minLength = 5;
+const maxLength = 9;
 
 function randomTarget(wordLength: number): string {
   const eligible = targets.filter((word) => word.length === wordLength);
@@ -67,9 +67,9 @@ if (initChallenge && !dictionarySet.has(initChallenge)) {
 
 function parseUrlLength(): number {
   const lengthParam = urlParam("length");
-  if (!lengthParam) return 5;
+  if (!lengthParam) return 6;
   const length = Number(lengthParam);
-  return length >= minLength && length <= maxLength ? length : 5;
+  return length >= minLength && length <= maxLength ? length : 6;
 }
 
 function parseUrlGameNumber(): number {
@@ -118,7 +118,7 @@ function Game(props: GameProps) {
     }
     setChallenge("");
     const newWordLength =
-      wordLength >= minLength && wordLength <= maxLength ? wordLength : 5;
+      wordLength >= minLength && wordLength <= maxLength ? wordLength : 6;
     setWordLength(newWordLength);
     setTarget(randomTarget(newWordLength));
     setHint("");
@@ -162,9 +162,9 @@ function Game(props: GameProps) {
       return;
     }
     if (guesses.length === props.maxGuesses) return;
-    if (/^[a-z]$/i.test(key)) {
+    if (/^[a-uyz]$/i.test(key)) {
       setCurrentGuess((guess) =>
-        (guess + key.toLowerCase()).slice(0, wordLength)
+        (guess + key.toLowerCase().replace("i", "ı")).slice(0, wordLength)
       );
       tableRef.current?.focus();
       setHint("");

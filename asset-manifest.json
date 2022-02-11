@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/toaly/static/css/main.fbb19623.css",
-    "main.js": "/toaly/static/js/main.3a50ef57.js",
+    "main.js": "/toaly/static/js/main.39ca5530.js",
     "index.html": "/toaly/index.html",
     "main.fbb19623.css.map": "/toaly/static/css/main.fbb19623.css.map",
-    "main.3a50ef57.js.map": "/toaly/static/js/main.3a50ef57.js.map"
+    "main.39ca5530.js.map": "/toaly/static/js/main.39ca5530.js.map"
   },
   "entrypoints": [
     "static/css/main.fbb19623.css",
-    "static/js/main.3a50ef57.js"
+    "static/js/main.39ca5530.js"
   ]
 }

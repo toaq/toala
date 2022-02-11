@@ -164,7 +164,7 @@ function Game(props: GameProps) {
     if (guesses.length === props.maxGuesses) return;
     if (/^[a-uyz]$/i.test(key)) {
       setCurrentGuess((guess) =>
-        (guess + key.toLowerCase().replace("i", "ı")).slice(0, wordLength)
+        (guess + key.toLowerCase()).slice(0, wordLength)
       );
       tableRef.current?.focus();
       setHint("");

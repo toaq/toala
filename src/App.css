@@ -5,6 +5,7 @@
 body {
   text-align: center;
   background-color: #eeeeee;
+  color: #111;
 }
 
 .Row {
@@ -15,20 +16,7 @@ body {
 
 .Row-letter {
   margin: 2px;
-  border: 2px solid rgba(128, 128, 128, 0.8);
-  flex: 1;
-  max-width: 40px;
-  height: 40px;
-  font-size: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.Row-letter-color {
-  margin: 2px;
-  border: 2px solid rgba(128, 128, 128, 0.8);
+  border: 2px solid rgba(138, 128, 128, 0.8);
   flex: 1;
   max-width: 40px;
   height: 40px;

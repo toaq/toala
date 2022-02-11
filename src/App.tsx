@@ -94,19 +94,20 @@ function App() {
           {toaq ? (seed ? "Neq" : "Po níchaq") : seed ? "Random" : "Today's"}
         </a>
       </div>
-      {page === "about" && <About />}
+      {page === "about" && <About toaq={toaq} />}
       {page === "settings" && (
         <div className="Settings">
           <div className="Settings-setting">
-            <input
-              id="toaq-setting"
-              type="checkbox"
-              checked={toaq}
-              onChange={() => setToaq((x: boolean) => !x)}
-            />
-            <label htmlFor="toaq-setting">
-              No chóqteı Tóaqzu / Toaq-language interface
-            </label>
+            <label htmlFor="language-setting">Zu / Language:</label>
+            <select
+              name="language-setting"
+              id="language-setting"
+              value={toaq ? "toaq" : "english"}
+              onChange={(e) => setToaq(e.target.value === "toaq")}
+            >
+              <option value="toaq">Toaqzu</option>
+              <option value="english">English</option>
+            </select>
           </div>
           <hr />
           <div className="Settings-setting">
@@ -128,7 +129,7 @@ function App() {
               onChange={() => setColorBlind((x: boolean) => !x)}
             />
             <label htmlFor="colorblind-setting">
-              {toaq ? "Fuı heodua réo" : "High-contrast colors"}
+              {toaq ? "Huaq heocheo réo" : "High-contrast colors"}
             </label>
           </div>
           <div className="Settings-setting">
@@ -144,7 +145,7 @@ function App() {
               <label htmlFor="difficulty-setting">
                 {toaq ? "Noane:" : "Difficulty:"}
               </label>
-              <strong>{["Normal", "Hard", "Ultra Hard"][difficulty]}</strong>
+              <strong>{["Nefaı", "Noa", "Jaq Noa"][difficulty]}</strong>
               <div
                 style={{
                   fontSize: 14,
@@ -153,19 +154,23 @@ function App() {
                   marginTop: 8,
                 }}
               >
-                {
-                  [
-                    `Guesses must be valid dictionary words.`,
-                    `Wordle's "Hard Mode". Green letters must stay fixed, and yellow letters must be reused.`,
-                    `An even stricter Hard Mode. Yellow letters must move away from where they were clued, and gray clues must be obeyed.`,
-                  ][difficulty]
-                }
+                {toaq
+                  ? [
+                      `Duaı hêq mí Toadua tóa käı há hóa da.`,
+                      `Po mí Wordle ga "Hard Mode" da. Duaı tîshue baq rıq laı, cy ru hêq baq lue laı tu sıe leotoa da.`,
+                      `Huaq noa ní mí Noa da. Duaı bû tıshue baq lue laı lu rıaq hóa lûe máq, cy ru jûaoruo há pó rúı laı da.`,
+                    ][difficulty]
+                  : [
+                      `Guesses must be valid dictionary (Toadua) words.`,
+                      `Wordle's "Hard Mode". Green letters must stay fixed, and yellow letters must be reused.`,
+                      `An even stricter Hard Mode. Yellow letters must move away from where they were clued, and gray clues must be obeyed.`,
+                    ][difficulty]}
               </div>
             </div>
           </div>
           <div className="Settings-setting">
             <label htmlFor="keyboard-setting">
-              {toaq ? "Daokaıchuotıteı:" : "Keyboard layout:"}
+              {toaq ? "Pó dáokaıchuo ga tıteı:" : "Keyboard layout:"}
             </label>
             <select
               name="keyboard-setting"

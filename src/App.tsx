@@ -178,11 +178,11 @@ function App() {
               value={keyboard}
               onChange={(e) => setKeyboard(e.target.value)}
             >
-              <option value="qwertyuiop-asdfghjkl-BzxcvbnmE">QWERTY</option>
-              <option value="azertyuiop-qsdfghjklm-BwxcvbnE">AZERTY</option>
-              <option value="qwertzuiop-asdfghjkl-ByxcvbnmE">QWERTZ</option>
-              <option value="BpyfgcrlE-aoeuidhtns-qjkxbmwvz">Dvorak</option>
-              <option value="qwfpgjluy-arstdhneio-BzxcvbkmE">Colemak</option>
+              <option value="qwertyuiop-asdfghjkl'-BzxcvbnmE">QWERTY</option>
+              <option value="azertyuiop'-qsdfghjklm-BwxcvbnE">AZERTY</option>
+              <option value="qwertzuiop-asdfghjkl'-ByxcvbnmE">QWERTZ</option>
+              <option value="B'pyfgcrlE-aoeuidhtns-qjkxbmwvz">Dvorak</option>
+              <option value="qwfpgjluy-arstdhneio'-BzxcvbkmE">Colemak</option>
             </select>
             <input
               style={{ marginLeft: 20 }}

@@ -57,8 +57,11 @@ export function speak(
 }
 
 export function ordinal(n: number): string {
-  return n + "ko";
+  return n + ([, "st", "nd", "rd"][(n % 100 >> 3) ^ 1 && n % 10] || "th");
 }
+
+export const englishNumbers =
+  "zero one two three four five six seven eight nine ten eleven".split(" ");
 
 export const toaqNumbers =
   "puısıa shı gu saq jo fe cı dıaı roaı neı heı heıshı".split(" ");

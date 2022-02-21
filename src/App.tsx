@@ -145,7 +145,11 @@ function App() {
               <label htmlFor="difficulty-setting">
                 {toaq ? "Noane:" : "Difficulty:"}
               </label>
-              <strong>{["Nefaı", "Noa", "Jaq Noa"][difficulty]}</strong>
+              <strong>
+                {toaq
+                  ? ["Nefaı", "Noa", "Jaq Noa"][difficulty]
+                  : ["Normal", "Hard", "Ultra Hard"][difficulty]}
+              </strong>
               <div
                 style={{
                   fontSize: 14,

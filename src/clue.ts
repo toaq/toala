@@ -1,5 +1,6 @@
 import {
   Difficulty,
+  englishNumbers,
   ordinal,
   toaqLetters,
   toaqNumbers,
@@ -66,7 +67,8 @@ export function describeClue(clue: CluedLetter[]): string {
 export function violation(
   difficulty: Difficulty,
   clues: CluedLetter[],
-  guess: string
+  guess: string,
+  toaq: boolean
 ): string | undefined {
   if (difficulty === Difficulty.Normal) {
     return undefined;
@@ -78,30 +80,45 @@ export function violation(
       (c) => c.letter === letter && c.clue !== Clue.Absent
     ).length;
     const guessCount = guess.split(letter).length - 1;
-    const glyph = toaqLetters[letter.toUpperCase()];
-    const nth = ordinal(i + 1);
+    const glyph = toaq
+      ? toaqLetters[letter.toUpperCase()]
+      : letter.toUpperCase();
+    const glyphs = glyph + (clueCount !== 1 ? "s" : "");
+    const nth = toaq ? `${i + 1}ko` : ordinal(i + 1);
 
     // Hard: enforce greens stay in place.
     if (clue === Clue.Correct && guess[i] !== letter) {
-      return `Duaı ${glyph} ke ${nth} laı da`;
+      return toaq
+        ? `Duaı ${glyph} ke ${nth} laı da`
+        : nth + " letter must be " + glyph;
     }
 
     // Hard: enforce yellows are used.
     if (guessCount < clueCount) {
+      const atLeastN =
+        clueCount > 1 ? `at least ${englishNumbers[clueCount]} ` : "";
       const ne = clueCount > 1 ? `sa ${toaqNumbers[clueCount]}` : `sa`;
-      return `Duaı hêq tóa ${ne} ${glyph} da`;
+      return toaq
+        ? `Duaı hêq tóa ${ne} ${glyph} da`
+        : `Guess must contain ${atLeastN}${glyphs}`;
     }
 
     // Ultra Hard: disallow would-be greens.
     if (ultra && clue !== Clue.Correct && guess[i] === letter) {
-      return `Bu dı ${glyph} ke ${nth} laı da`;
+      return toaq
+        ? `Bu dı ${glyph} ke ${nth} laı da`
+        : nth + " letter can't be " + glyph;
     }
 
     // Ultra Hard: if the exact amount is known because of an Absent clue, enforce it.
     if (ultra && clue === Clue.Absent && guessCount !== clueCount) {
       return clueCount === 0
-        ? `Duaı hêq tóa sıa ${glyph} da`
-        : `Duaı ${toaqNumbers[clueCount]} ke ${glyph} da`;
+        ? toaq
+          ? `Duaı hêq tóa sıa ${glyph} da`
+          : `Guess can't contain ${glyph}`
+        : toaq
+        ? `Duaı ${toaqNumbers[clueCount]} ke ${glyph} da`
+        : `Guess must contain exactly ${englishNumbers[clueCount]} ${glyphs}`;
     }
 
     ++i;

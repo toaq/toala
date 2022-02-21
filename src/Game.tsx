@@ -329,14 +329,14 @@ function Game(props: GameProps) {
       <div className="Game-seed-info">
         {challenge
           ? props.toaq
-            ? "chufaq luaq sa kuaqbase"
+            ? "chufaq luaq súq sa kuaqbase"
             : "playing a challenge game"
           : seed
           ? props.toaq
             ? `neqpoaı ${seed} — ${gameNumber}ko ${wordLength}laıtoa`
             : `${describeSeed(seed)} — length ${wordLength}, game ${gameNumber}`
           : props.toaq
-          ? "chufaq luaq sa neq"
+          ? "chufaq luaq súq sa neq"
           : "playing a random game"}
       </div>
       <p>

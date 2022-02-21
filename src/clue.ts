@@ -1,4 +1,9 @@
-import { Difficulty, englishNumbers, ordinal } from "./util";
+import {
+  Difficulty,
+  ordinal,
+  toaqLetters,
+  toaqNumbers,
+} from "./util";
 
 export enum Clue {
   Absent,
@@ -73,32 +78,30 @@ export function violation(
       (c) => c.letter === letter && c.clue !== Clue.Absent
     ).length;
     const guessCount = guess.split(letter).length - 1;
-    const glyph = letter.toUpperCase();
-    const glyphs = glyph + (clueCount !== 1 ? "s" : "");
+    const glyph = toaqLetters[letter.toUpperCase()];
     const nth = ordinal(i + 1);
 
     // Hard: enforce greens stay in place.
     if (clue === Clue.Correct && guess[i] !== letter) {
-      return nth + " letter must be " + glyph;
+      return `Duaı ${glyph} ke ${nth} laı da`;
     }
 
     // Hard: enforce yellows are used.
     if (guessCount < clueCount) {
-      const atLeastN =
-        clueCount > 1 ? `at least ${englishNumbers[clueCount]} ` : "";
-      return `Guess must contain ${atLeastN}${glyphs}`;
+      const ne = clueCount > 1 ? `sa ${toaqNumbers[clueCount]}` : `sa`;
+      return `Duaı hêq tóa ${ne} ${glyph} da`;
     }
 
     // Ultra Hard: disallow would-be greens.
     if (ultra && clue !== Clue.Correct && guess[i] === letter) {
-      return nth + " letter can't be " + glyph;
+      return `Bu dı ${glyph} ke ${nth} laı da`;
     }
 
     // Ultra Hard: if the exact amount is known because of an Absent clue, enforce it.
     if (ultra && clue === Clue.Absent && guessCount !== clueCount) {
       return clueCount === 0
-        ? `Guess can't contain ${glyph}`
-        : `Guess must contain exactly ${englishNumbers[clueCount]} ${glyphs}`;
+        ? `Duaı hêq tóa sıa ${glyph} da`
+        : `Duaı ${toaqNumbers[clueCount]} ke ${glyph} da`;
     }
 
     ++i;

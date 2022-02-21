@@ -57,11 +57,11 @@ export function speak(
 }
 
 export function ordinal(n: number): string {
-  return n + ([, "st", "nd", "rd"][(n % 100 >> 3) ^ 1 && n % 10] || "th");
+  return n + "ko";
 }
 
-export const englishNumbers =
-  "zero one two three four five six seven eight nine ten eleven".split(" ");
+export const toaqNumbers =
+  "puısıa shı gu saq jo fe cı dıaı roaı neı heı heıshı".split(" ");
 
 export function describeSeed(seed: number): string {
   const year = Math.floor(seed / 10000);
@@ -87,3 +87,30 @@ export function describeSeed(seed: number): string {
     return "seed " + seed;
   }
 }
+
+export const toaqLetters: Record<string, string> = {
+  M: "mameı",
+  B: "bubue",
+  P: "pıpoq",
+  F: "fofuaq",
+  N: "nanaq",
+  D: "dudeo",
+  T: "tıtıeq",
+  Z: "zozeo",
+  C: "cecoa",
+  S: "saqseoq",
+  R: "raırua",
+  L: "laolıq",
+  J: "jujuo",
+  Q: "aq'aq",
+  G: "guguı",
+  K: "kıkue",
+  "'": "o'aomo",
+  H: "hehaq",
+  A: "aq'anı",
+  U: "uq'u",
+  I: "ıq'ı",
+  O: "oq'oguı",
+  E: "eq'elu",
+  Y: "yzy",
+};

@@ -1,3 +1,3 @@
-# hello wordl
-It's my own [hello wordl](https://github.com/lynn/hello-wordl/) in the conlang [Toaq](https://toaq.me).
+# mí Toala
+Wordle in Toaq, based on [mí Laqme](https://github.com/lynn)'s [hello wordl](https://github.com/lynn/hello-wordl/).
 

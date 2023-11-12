@@ -71,7 +71,7 @@ function App() {
       lang={toaq ? "art-toaq" : "en"}
       className={"App-container" + (colorBlind ? " color-blind" : "")}
     >
-      <h1>mí Toaly</h1>
+      <h1>mí Toala</h1>
       <div className="top-right">
         {page !== "game" ? (
           link("❌", toaq ? "Tua poa" : "Close", "game")

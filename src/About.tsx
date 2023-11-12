@@ -8,7 +8,7 @@ export function About(props: { toaq: boolean }) {
       {props.toaq ? (
         <>
           <p>
-            <i>mí Toaly</i> bı beokopı zé mí Wordle na ru no zé Tóaqzu.
+            <i>mí Toala</i> bı beokopı zé mí Wordle na ru no zé Tóaqzu.
           </p>
           <p>
             Leo sho jeıdua há sa shuı toa chà jîto há chìo sa bu huaq puı{" "}
@@ -22,7 +22,7 @@ export function About(props: { toaq: boolean }) {
       ) : (
         <>
           <p>
-            <i>mí Toaly</i> is a Wordle clone for{" "}
+            <i>mí Toala</i> is a Wordle clone for{" "}
             <a href="https://toaq.me">Toaq</a>, a constructed language.
           </p>
           <p>

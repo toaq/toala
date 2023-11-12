@@ -78,7 +78,7 @@ function App() {
         ) : (
           <>
             {link("❓", toaq ? "Sóakue" : "About", "about")}
-            {link("⚙️", toaq ? "Settings" : "Cíoqtoq", "settings")}
+            {link("⚙️", toaq ? "Cíoqtoq" : "Settings", "settings")}
           </>
         )}
       </div>
@@ -105,7 +105,7 @@ function App() {
               value={toaq ? "toaq" : "english"}
               onChange={(e) => setToaq(e.target.value === "toaq")}
             >
-              <option value="toaq">Toaqzu</option>
+              <option value="toaq">Tóaqzu</option>
               <option value="english">English</option>
             </select>
           </div>
@@ -118,7 +118,7 @@ function App() {
               onChange={() => setDark((x: boolean) => !x)}
             />
             <label htmlFor="dark-setting">
-              {toaq ? "Moy chóqteı" : "Dark theme"}
+              {toaq ? "Moku chóqteı" : "Dark theme"}
             </label>
           </div>
           <div className="Settings-setting">
@@ -129,7 +129,7 @@ function App() {
               onChange={() => setColorBlind((x: boolean) => !x)}
             />
             <label htmlFor="colorblind-setting">
-              {toaq ? "Huaq heocheo réo" : "High-contrast colors"}
+              {toaq ? "Hạheocheo réo" : "High-contrast colors"}
             </label>
           </div>
           <div className="Settings-setting">
@@ -147,7 +147,7 @@ function App() {
               </label>
               <strong>
                 {toaq
-                  ? ["Nefaı", "Noa", "Jaq Noa"][difficulty]
+                  ? ["Cem", "Noa", "Jaq Noa"][difficulty]
                   : ["Normal", "Hard", "Ultra Hard"][difficulty]}
               </strong>
               <div
@@ -160,9 +160,9 @@ function App() {
               >
                 {toaq
                   ? [
-                      `Duaı hêq mí Toadua tóa käı há hóa da.`,
-                      `Po mí Wordle ga "Hard Mode" da. Duaı tîshue baq rıq laı, cy ru hêq baq lue laı tu sıe leotoa da.`,
-                      `Huaq noa ní mí Noa da. Duaı bû tıshue baq lue laı lu rıaq hóa lûe máq, cy ru jûaoruo há pó rúı laı da.`,
+                      `Duaı, ꝡä heq mí Toadua tú toa, ꝡë kaı há hóa.`,
+                      `Mı "Hard Mode" pomı Wordle da. Duaı, ꝡä tıshue tú laı rıq, rú, ꝡä heq tû leotoa sıe tú laı lue.`,
+                      `Hạnoa hao ní mí Noa da. Duaı, ꝡä bu tıshue tú laı lue ríaq ꝡä lue láı tî hóa, rú, ꝡä juaoruo há júaq pó láı ruı da.`,
                     ][difficulty]
                   : [
                       `Guesses must be valid dictionary (Toadua) words.`,
@@ -174,7 +174,7 @@ function App() {
           </div>
           <div className="Settings-setting">
             <label htmlFor="keyboard-setting">
-              {toaq ? "Pó dáokaıchuo ga tıteı:" : "Keyboard layout:"}
+              {toaq ? "Tıteı po cíoqnhuo:" : "Keyboard layout:"}
             </label>
             <select
               name="keyboard-setting"
@@ -196,7 +196,7 @@ function App() {
               onChange={() => setEnterLeft((x: boolean) => !x)}
             />
             <label htmlFor="enter-left-setting">
-              {toaq ? "Lıo cíoq mï Koe" : '"Enter" on left side'}
+              {toaq ? "Lıo mícıoq Koe" : '"Enter" on left side'}
             </label>
           </div>
         </div>

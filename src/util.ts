@@ -116,4 +116,5 @@ export const toaqLetters: Record<string, string> = {
   O: "oq'oguı",
   E: "eq'elu",
   Y: "yzy",
+  Ꝡ: "ꝡeꝡa",
 };

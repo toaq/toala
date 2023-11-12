@@ -99,7 +99,7 @@ function Game(props: GameProps) {
     challengeError
       ? `Invalid challenge string, playing random game.`
       : props.toaq
-      ? `Kaı súq sa shıko toa shou!`
+      ? `Kaı súq sá toa kọshı doa!`
       : `Make your first guess!`
   );
   const currentSeedParams = () =>
@@ -201,16 +201,16 @@ function Game(props: GameProps) {
 
       const gameOver = (verbed: string) =>
         props.toaq
-          ? `${verbed} súq lũı da! Due ku shú ${target.toUpperCase()} da. (Ca mí Koe nîqguo luaq)`
+          ? `Luı ${verbed} súq da! Due kú pó shú ${target.toUpperCase()}. (Nıqguo luaq súq dêm mícıoq Koe doa)`
           : `You ${verbed}! The answer was ${target.toUpperCase()}. (Enter to ${
               challenge ? "play a random game" : "play again"
             })`;
 
       if (currentGuess === target) {
-        setHint(gameOver(props.toaq ? "Taı" : "won"));
+        setHint(gameOver(props.toaq ? "taı" : "won"));
         setGameState(GameState.Won);
       } else if (guesses.length + 1 === props.maxGuesses) {
-        setHint(gameOver(props.toaq ? "Buaq" : "lost"));
+        setHint(gameOver(props.toaq ? "buaq" : "lost"));
         setGameState(GameState.Lost);
       } else {
         setHint("");
@@ -298,7 +298,7 @@ function Game(props: GameProps) {
           onClick={() => {
             setHint(
               props.toaq
-                ? `Due ku shú ${target.toUpperCase()} da. (Ca mí Koe nîqguo luaq)`
+                ? `Pu due pó kú shú ${target.toUpperCase()} da. (Nıqguo luaq súq dêm mícıoq Koe doa)`
                 : `The answer was ${target.toUpperCase()}. (Enter to play again)`
             );
             setGameState(GameState.Lost);
@@ -334,14 +334,14 @@ function Game(props: GameProps) {
       <div className="Game-seed-info">
         {challenge
           ? props.toaq
-            ? "chufaq luaq súq sa kuaqbase"
+            ? "chum luaq súq sá kuaqbase"
             : "playing a challenge game"
           : seed
           ? props.toaq
             ? `neqpoaı ${seed} — ${gameNumber}ko ${wordLength}laıtoa`
             : `${describeSeed(seed)} — length ${wordLength}, game ${gameNumber}`
           : props.toaq
-          ? "chufaq luaq súq sa neq"
+          ? "chum luaq súq sá neq"
           : "playing a random game"}
       </div>
       <p>
@@ -349,12 +349,12 @@ function Game(props: GameProps) {
           onClick={() => {
             share(
               props.toaq
-                ? "Luı kaı jí sa daochıu péqtoq!"
+                ? "Luı kaı jí sá daochıu ôq tı péqtoq!"
                 : "Link shared to clipboard!"
             );
           }}
         >
-          {props.toaq ? "Po ní luaqse ga daochıu" : "Share a link to this game"}
+          {props.toaq ? "Daochıu po ní luaqse" : "Share a link to this game"}
         </button>{" "}
         {gameState !== GameState.Playing && (
           <button
@@ -364,7 +364,7 @@ function Game(props: GameProps) {
                 : ["⬛", "🟨", "🟩"];
               share(
                 props.toaq
-                  ? "Luı kaı jí sa emojıfuaq péqtoq!"
+                  ? "Luı kaı jí sá emojıfuaq ôq tı péqtoq!"
                   : "Result copied to clipboard!",
                 guesses
                   .map((guess) =>
@@ -376,7 +376,7 @@ function Game(props: GameProps) {
               );
             }}
           >
-            {props.toaq ? "Po ní luaqse ga emojıfuaq" : "Share emoji results"}
+            {props.toaq ? "Emojıfuaq po ní luaqse" : "Share emoji results"}
           </button>
         )}
       </p>

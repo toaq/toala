@@ -89,7 +89,7 @@ export function violation(
     // Hard: enforce greens stay in place.
     if (clue === Clue.Correct && guess[i] !== letter) {
       return toaq
-        ? `Duaı ${glyph} ke ${nth} laı da`
+        ? `Duaı, ꝡä ${glyph} láı ${nth}`
         : nth + " letter must be " + glyph;
     }
 
@@ -97,16 +97,16 @@ export function violation(
     if (guessCount < clueCount) {
       const atLeastN =
         clueCount > 1 ? `at least ${englishNumbers[clueCount]} ` : "";
-      const ne = clueCount > 1 ? `sa ${toaqNumbers[clueCount]}` : `sa`;
+      const ne = clueCount > 1 ? `nhọ́${toaqNumbers[clueCount]}` : `sá`;
       return toaq
-        ? `Duaı hêq tóa ${ne} ${glyph} da`
+        ? `Duaı, ꝡä heq tóa ${ne} ${glyph}`
         : `Guess must contain ${atLeastN}${glyphs}`;
     }
 
     // Ultra Hard: disallow would-be greens.
     if (ultra && clue !== Clue.Correct && guess[i] === letter) {
       return toaq
-        ? `Bu dı ${glyph} ke ${nth} laı da`
+        ? `Bu dı ${glyph} láı ${nth}`
         : nth + " letter can't be " + glyph;
     }
 
@@ -114,10 +114,10 @@ export function violation(
     if (ultra && clue === Clue.Absent && guessCount !== clueCount) {
       return clueCount === 0
         ? toaq
-          ? `Duaı hêq tóa sıa ${glyph} da`
+          ? `Duaı, ꝡä heq tóa sía ${glyph}`
           : `Guess can't contain ${glyph}`
         : toaq
-        ? `Duaı ${toaqNumbers[clueCount]} ke ${glyph} da`
+        ? `Duaı ${toaqNumbers[clueCount]} túq ${glyph}`
         : `Guess must contain exactly ${englishNumbers[clueCount]} ${glyphs}`;
     }
 

@@ -8,15 +8,14 @@ export function About(props: { toaq: boolean }) {
       {props.toaq ? (
         <>
           <p>
-            <i>mí Toala</i> bı beokopı zé mí Wordle na ru no zé Tóaqzu.
+            <i>Mí Toala</i> bï, heno Toaqno tá mí Wordle.
           </p>
           <p>
-            Leo sho jeıdua há sa shuı toa chà jîto há chìo sa bu huaq puı{" "}
-            {maxGuesses} da.
+            Sá toa shuı nä, chıo pêı {maxGuesses}, ꝡä sheı jıto há, ꝡä jeı tóa kú hí.
             <br />
-            Heq shúı toa sıa o'aomo (') da.
+            Heq tóa shuı sía o'aomo (').
             <br />
-            Cua jíoqkea tûshı jıto há cy sâ tua reomıa ja ke laı da.
+            Ca tú ë jıto há sá, ꝡä sho reomıa ké laı.
           </p>
         </>
       ) : (
@@ -48,22 +47,23 @@ export function About(props: { toaq: boolean }) {
       {props.toaq ? (
         <>
           <p>
-            Heq shúı toa sıa <b>tıtıeq</b> ra <b>oq'oguı</b> da.
+            Heq tóa shuı sía <b>tıtıeq</b> ra <b>oq'oguı</b>.
           </p>
           <p>
-            Due ke <b className={"green-bg"}>aq'anı</b> da!{" "}
-            <b className={"green-bg"}>Aq'anı</b> saqko laı da.
+            Due pó ké <b className={"green-bg"}>aq'anı</b> da!{" "}
+            <b className={"green-bg"}>Aq'anı</b> láı kọsaq da.
             <br />
-            <strong>(Daı heq shúı toa sa meaheo aq'anı da.)</strong>
+            <strong>(Daı juna, ꝡä heq tóa shuı sá hezo aq'anı da.)</strong>
           </p>
           <p>
-            Nıe sa <b className={"yellow-bg"}>ıq'ırue</b> shúı toa <em>tì sa meaheo</em> da.
+            Nıe sá <b className={"yellow-bg"}>ıq'ırue</b> tóa shuı{" "}
+            <em>tî sá heo</em> da.
             <br />
-            <strong>(Daı nıe sa puı máq da. 🤔)</strong>
+            <strong>(Daı juna, ꝡä nıe sá puı tóa da. 🤔)</strong>
           </p>
           <hr />
           <p>
-            Tıu tıtua há ke <b className={"yellow-bg"}>ıq'irue</b> sa meaheo ba:
+            Tíu tıtua há ké <b className={"yellow-bg"}>ıq'irue</b> sá meaheo ba:
           </p>
         </>
       ) : (
@@ -98,7 +98,7 @@ export function About(props: { toaq: boolean }) {
           { clue: Clue.Correct, letter: "a" },
           { clue: Clue.Correct, letter: "q" },
         ]}
-        annotation={props.toaq ? "Juı da!" : "So close!"}
+        annotation={props.toaq ? "Juı ꝡeı!" : "So close!"}
       />
       <Row
         rowState={RowState.LockedIn}
@@ -109,7 +109,7 @@ export function About(props: { toaq: boolean }) {
           { clue: Clue.Correct, letter: "a" },
           { clue: Clue.Correct, letter: "q" },
         ]}
-        annotation={props.toaq ? "Aja!" : "Got it!"}
+        annotation={props.toaq ? "Kıta!" : "Got it!"}
       />
     </div>
   );

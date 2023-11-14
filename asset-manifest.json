@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/toala/static/css/main.00aedb6d.css",
-    "main.js": "/toala/static/js/main.7b28568c.js",
+    "main.js": "/toala/static/js/main.1d559ede.js",
     "index.html": "/toala/index.html",
     "main.00aedb6d.css.map": "/toala/static/css/main.00aedb6d.css.map",
-    "main.7b28568c.js.map": "/toala/static/js/main.7b28568c.js.map"
+    "main.1d559ede.js.map": "/toala/static/js/main.1d559ede.js.map"
   },
   "entrypoints": [
     "static/css/main.00aedb6d.css",
-    "static/js/main.7b28568c.js"
+    "static/js/main.1d559ede.js"
   ]
 }
